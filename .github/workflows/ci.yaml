@@ -1,44 +1,44 @@
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-name: ci
-jobs:
-  linkinator:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./
-        with:
-          skip: "CHANGELOG.md"
-      - uses: ./
-        with:
-          paths: list.txt
-          concurrency: 1
-          markdown: false
-          linksToSkip: "http://fake.local, http://fake.local/fake"
-#           format: CSV
-          
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - run: npm install
-      - run: npm test
-      - uses: codecov/codecov-action@v3
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - run: npm install
-      - run: npm run lint
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+# name: ci
+# jobs:
+#   linkinator:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#       - uses: ./
+#         with:
+#           skip: "CHANGELOG.md"
+#       - uses: ./
+#         with:
+#           paths: list.txt
+#           concurrency: 1
+#           markdown: false
+#           linksToSkip: "http://fake.local, http://fake.local/fake"
+#            format: CSV
+#           
+#   test:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#       - uses: actions/setup-node@v3
+#         with:
+#           node-version: 16
+#       - run: npm install
+#       - run: npm test
+#       - uses: codecov/codecov-action@v3
+#   lint:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#       - uses: actions/setup-node@v3
+#         with:
+#           node-version: 16
+#       - run: npm install
+#       - run: npm run lint
 #   ncc:
 #     runs-on: ubuntu-latest
 #     steps:
