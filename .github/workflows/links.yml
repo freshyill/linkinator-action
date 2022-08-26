@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: JustinBeckwith/linkinator-action@v1
+      - uses: JustinBeckwith/linkinator-action@v4.0.2
         with:
           paths: list.md
           concurrency: 1
