@@ -1,0 +1,17 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+name: ci
+jobs:
+  linkinator:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: JustinBeckwith/linkinator-action@v1
+        with:
+          paths: list.txt
+          concurrency: 1
+          markdown: false
+          linksToSkip: "http://fake.local, http://fake.local/fake"
