@@ -18,7 +18,7 @@ jobs:
           concurrency: 1
           markdown: false
           linksToSkip: "http://fake.local, http://fake.local/fake"
-          format: csv
+          format: CSV
           
   test:
     runs-on: ubuntu-latest
