@@ -14,10 +14,12 @@ jobs:
           skip: "CHANGELOG.md"
       - uses: ./
         with:
-          paths: test/fixtures/test.md
+          paths: list.txt
           concurrency: 1
-          markdown: true
+          markdown: false
           linksToSkip: "http://fake.local, http://fake.local/fake"
+          format: csv
+          
   test:
     runs-on: ubuntu-latest
     steps:
@@ -52,8 +54,8 @@ jobs:
       - run: npm run build
       - name: git config
         run: |
-          git config user.name BeckwithRobot
-          git config user.email justin.beckwith+beckwithrobot@gmail.com
+          git config user.name freshyill
+          git config user.email freshyill@gmail.com@gmail.com
       - name: git push
         run: |
           git commit -a -m 'npm run build' || echo 'no changes'
